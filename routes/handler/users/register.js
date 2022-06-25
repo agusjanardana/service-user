@@ -9,7 +9,6 @@ module.exports = async (req, res, next) => {
         name: { type: 'string', min: 3, max: 30, empty: false },
         email: { type: 'email', empty: false },
         password: { type: 'string', min: 6, max: 30, empty: false },
-        profession: { type: 'string', min: 3, max: 30, empty: true },
     }
 
     const validate = v.validate(req.body, schema);

@@ -5,7 +5,6 @@ const v = new Validator();
 module.exports = async (req, res) => {
     const userId = req.body.user_id;
     const refreshToken = req.body.refresh_token;
-
     const scheme = {
         refresh_token: 'string',
         user_id: 'number',
@@ -28,10 +27,9 @@ module.exports = async (req, res) => {
             message: 'user not found',
         });
     }
-
     const createdRefreshToken = await RefreshToken.create({
         token: refreshToken,
-        user_id: userId,
+        userId: userId,
     });
 
     return res.json({
